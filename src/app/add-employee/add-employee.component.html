@@ -1,5 +1,7 @@
 <div class="container">
-    <h2>Ajouter un étudiant</h2>
+    <div class="card">
+        <div class="card-body ">
+    <h2 class="card-title display-6 ">Add Employee</h2>
     <form>
     <div class="col-sm-4 col-md-4 col-lg-4">
     <label  class="form-label">Cin</label>
@@ -21,16 +23,17 @@
     </div>
     <div class="col-sm-4 col-md-4 col-lg-4">
     <label >Date de naissance</label>
-    <input type="date" [(ngModel)]="newEmp.dateNaiss" name="dateNaissance"
-    class="form-control">
+    <input type="date" [(ngModel)]="newEmp.dateNaiss" name="dateNaissance" class="form-control">
     </div>
     <div class="col-sm-2 col-md-2 col-lg-2">
     <label >Adresse</label>
-    <input type="text" [(ngModel)]="newEmp.adress" name="adresse" class="form-control">
+    <textarea name="adress" class="form-control" [(ngModel)]="newEmp.adress"></textarea>
 </div><br>
 <div class="mt-8">
-<button type="submit" (click)="addEmployee()" class="btn btn-success">Add</button>
-
+<button type="submit" (click)="addEmployee()" class="btn btn-outline-success">Add</button>
+<button type="reset" class="btn btn-outline-danger ">Clear</button>
 </div>
 </form>
+</div>
+</div>
 </div>
