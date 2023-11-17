@@ -1,0 +1,36 @@
+<div class="container">
+    <h2>Ajouter un étudiant</h2>
+    <form>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+    <label  class="form-label">Cin</label>
+    <input type="number" [(ngModel)]="newEmp.cin" name="cin" class="form-control"  placeholder="Enter Number">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4" >
+    <label class="form-label">First Name</label>
+    <input type="text"[(ngModel)]="newEmp.nom" name="nom" class="form-control" placeholder="Enter text">
+    <div class="col">
+    <label class="form-label" >Last Name</label>
+    <input type="text"[(ngModel)]="newEmp.prenom" name="prenom" class="form-control" placeholder="Enter text">
+    </div>
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+        <label class="form-label">Departments</label>
+        <select class="form-select form-select-sm" aria-label="form-select-sm example" name="iddep" [(ngModel)]="newCin">
+        <option *ngFor="let g of departments" [value]="g.iddep">{{g.nomDep}}</option>
+        </select>
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+    <label >Date de naissance</label>
+    <input type="date" [(ngModel)]="newEmp.dateNaiss" name="dateNaissance"
+    class="form-control">
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+    <label >Adresse</label>
+    <input type="text" [(ngModel)]="newEmp.adress" name="adresse" class="form-control">
+</div><br>
+<div class="mt-8">
+<button type="submit" (click)="addEmployee()" class="btn btn-success">Add</button>
+
+</div>
+</form>
+</div>

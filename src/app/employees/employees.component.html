@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="card shadow mb-4"> 
+    <div class="card-body border-success mb-3">
+    <h1 class="card-title " class="display-6">Employees</h1>
+    <table class="table table-striped table-bordered   ">
+        <thead>
+            <tr class="table-primary ">
+                <th scope="col">#</th>
+            <th scope="col">Cin</th>
+           <th scope="col">First Name</th>
+           <th scope="col">Last Name</th>
+           <th scope="col">Birth Date</th>
+           <th scope="col">Adresse</th>
+           <th scope="col">Departement Id</th>
+           <th scope="col">Salary</th>
+           <th scope="col">Action</th>
+            </tr>
+            </thead>
+        <tbody *ngFor="let e of tab">
+          <tr>
+            <th>{{tab.indexOf(e)+1}}</th>
+            <td>{{e.cin}}</td>
+            <td>{{e.nom}}</td>
+            <td>{{e.prenom}}</td>
+            <td>{{e.dateNaiss | date:'dd/MM/yyyy'}}</td>
+            <td>{{e.adress}}</td>
+            <td>{{e.department.iddep}}</td>
+            <td>{{e.department.salary}}</td>
+            <td>
+                <a class="btn" (click)="suppEmployee(e)"><img src="/assets/delete.png" height="32" width="32"></a>
+                <a class="btn" [routerLink]="['/updateEtudiant',e.cin]">
+                <img src="/assets/modify.png" height="32" width="32"></a>
+                </td>
+          </tr>
+        </tbody>
+            </table>
+            </div>
+            </div>
+            </div>
+            
+            
+
+
