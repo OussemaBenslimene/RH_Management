@@ -3,5 +3,9 @@ h2{
 }
 button{
     width: 150px;
-    margin: 10px;
+    margin-right: 10px;
+}
+.card{
+    margin: 50px;
+    background-color: #9DC3C2;
 }

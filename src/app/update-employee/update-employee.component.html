@@ -1,0 +1,46 @@
+    <div class="card shadow" style="margin: 50px; background-color: #9DC3C2;">
+    <h2 class="card-header display-6" style="text-align: center;">Modify Employee</h2>
+    <div class="card-body">
+    <form>
+
+    <div class="col-lg-3">
+    <label  class="form-label">Cin</label>
+    <input  readonly type="number" [(ngModel)]="CurrentEmp.cin" name="cin" class="form-control"  placeholder="Enter Number">
+    </div>
+
+    <div class="col-lg-3" >
+    <label class="form-label">First Name</label>
+    <input type="text"[(ngModel)]="CurrentEmp.nom" name="nom" class="form-control" placeholder="Enter text">
+    </div>
+
+    <div class="col-lg-3">
+    <label class="form-label" >Last Name</label>
+    <input type="text"[(ngModel)]="CurrentEmp.prenom" name="prenom" class="form-control" placeholder="Enter text">
+    </div>
+    
+    <div class="col-lg-3">
+        <label class="form-label">Departments</label>
+        <select class="form-select form-select-sm" aria-label="form-select-sm example" name="iddep" [(ngModel)]="CurrentEmp.department.iddep">
+        <option *ngFor="let g of departments" [value]="g.iddep">{{g.nomDep}}</option>
+        </select>
+    </div>
+
+    <div class="col-lg-3">
+    <label >Date de naissance</label>
+    <input type="date" [ngModel]="CurrentEmp.dateNaiss | date : 'yyyy-MM-dd'" (ngModelChange)="CurrentEmp.dateNaiss = $event" name="dateNaissance" class="form-control">
+    </div>
+
+    <div class="col-lg-3">
+    <label >Adresse</label>
+    <input type="text" name="adress" class="form-control" [(ngModel)]="CurrentEmp.adress">
+    </div>
+
+    <br>
+
+    <div class="d-grid gap-2 d-md-block">
+    <button type="submit" (click)="editEmployee()" class="btn btn-outline-success" style="width: 200px;">Modify</button>
+    </div>
+
+</form>
+</div>
+</div>

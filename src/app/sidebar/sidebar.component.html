@@ -1,0 +1,22 @@
+<div id="main-container" class="position-fixed "> 
+    <div class="menu"> 
+        <ul class="menu-content"> 
+<li><a href="/employees"> 
+    <img src="../assets/home.png">
+    <span>Home</span></a>
+</li> 
+<li><a href="/dashboard"> 
+    <img src="../assets/dashboard.png" >
+    <span>DashBoard</span></a></li>
+
+    <li *ngIf="isAdmin"><a href="/add-employee"> 
+    <img src="../assets/user.png" >
+    <span>Add Employee</span></a></li>
+
+    
+    <li><a href="/search"> 
+    <img src="../assets/magnifier.png" >
+    <span>Search</span></a></li>
+    </ul> 
+    </div> 
+    </div>

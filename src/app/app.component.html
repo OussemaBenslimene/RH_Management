@@ -5,8 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GestionRH</title>
 </head>
-<body>
-  <app-navbar></app-navbar>
+<body> 
+ <app-navbar></app-navbar>
+ <div>
+ <div class="row">
+  <div class="col-2" *ngIf="connected">
+ <app-sidebar></app-sidebar>
+ </div>
+ <div class=" col">
+ <router-outlet></router-outlet>
+ </div>
+ </div>
+ </div>
 </body>
 </html>
-<router-outlet></router-outlet>

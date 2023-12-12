@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<nav class="navbar navbar-expand-sm text-black-50  sticky-top" style="background-color: #EFF1F3;">
     <div class="container-fluid">
     <a class="navbar-brand" href="#">
         <img src="../assets/logo.png"  style="width: 50px;" class="d-inline-block align-middle" alt="logo de l'app">
@@ -9,11 +9,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
     <div class="navbar-nav">
-    <a class="nav-item nav-link" href="/employees">Employees</a>
-    <a class="nav-link" href="/add-employee">Add Employee</a>
-    <a class="nav-link" href="#">Recruitement</a>
-    <a class="nav-link" href="#">User</a>
+    <div class="navbar-text" *ngIf="user != null">[{{user}}]</div>
 
+    <a class="nav-link" (click)="authServ.disconnect()" href="#" *ngIf="user != null">log out</a>
     </div>
     </div>
     </div>

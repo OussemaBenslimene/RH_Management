@@ -1,6 +1,7 @@
 import { Component , OnInit} from '@angular/core';
 import { Employee } from '../model/employee.model';
 import { ManageService } from '../services/manage.service';
+import { AuthService } from '../services/auth.service';
 @Component({
   selector: 'app-employees',
   templateUrl: './employees.component.html',
@@ -9,7 +10,8 @@ import { ManageService } from '../services/manage.service';
 export class EmployeesComponent implements OnInit{
   row : number = 0
   tab : Employee[]
-  constructor(private empserv: ManageService){ 
+  isAdmin!: boolean
+  constructor(private empserv: ManageService , private authserv : AuthService){ 
     this.tab = empserv.listEmployees();
    }
    suppEmployee (e : Employee) {
@@ -19,6 +21,7 @@ export class EmployeesComponent implements OnInit{
     console.log("succes:"+e.nom)
     }}
   ngOnInit(): void {
+    this.isAdmin = this.authserv.testerAdmin()
     
   }
 

@@ -1,0 +1,76 @@
+
+<div class="card shadow"> 
+    <h1 class="card-header" class="display-6">Find an employee</h1>
+<div class="card-body border-success">
+    <form name="f1">
+        Choose a search criteria : 
+        <input type="radio" [(ngModel)]="critere" value="nom" name="r1"> By Name
+        <input type="radio" [(ngModel)]="critere" value="department" name="r1"> By Departement
+        <input type="radio" [(ngModel)]="critere" value="cin" name="r1"> By Cin
+        <input type="radio" [(ngModel)]="critere" value="salary" name="r1"> By salary
+        </form><br>
+
+        <div [ngSwitch]="critere">
+    <form name="f2" class="form-inline">
+        <div class="form-group mx-sm-3 mb-2 mt-2" *ngSwitchCase="'nom'">
+        <label>Name</label>
+        <input type="text" class="form-control w-25 " name="nom" #nomEmp (keyup)="SearchByName(nomEmp.value)">
+        </div>
+        <div class="form-group mx-sm-3 mb-2 mt-2" *ngSwitchCase="'cin'">
+        <label>Cin</label>
+        <input type="number" maxlength="3" class="form-control w-25 " name="cin" #CinEtu (keyup)="searchByCin(CinEtu.value)">
+        </div>
+
+        <div class="form-group mx-sm-3 mb-2 mt-2" *ngSwitchCase="'salary'">
+            <label>Salary</label>
+            <input type="number" maxlength="3" class="form-control w-25 " name="salary" #salary (keyup)="searchBySalary(salary.value)">
+            </div>
+
+        <div class="form-group mx-sm-3 mb-2 mt-2" *ngSwitchCase="'department'">
+            Department <select class="form-control form-select-sm w-25  " name="grpid" 
+            [(ngModel)]="dep_idSearch" (change)="SearchByDep()">
+            <option  value="undefined" selected>Tous</option>
+            <option *ngFor="let dp of dep_list" [value]="dp.iddep">{{dp.nomDep}}</option>
+            </select>
+            </div>
+
+        </form>
+        </div>
+
+<div class="table-responsive-lg">
+<table class="table table-striped table-bordered align-baseline">
+    <thead>
+        <tr class="table-primary ">
+            <th scope="col">#</th>
+        <th scope="col">Cin</th>
+       <th scope="col">First Name</th>
+       <th scope="col">Last Name</th>
+       <th scope="col">Birth Date</th>
+       <th scope="col">Adresse</th>
+       <th scope="col">Departement Id</th>
+       <th scope="col">Salary</th>
+       
+        </tr>
+        </thead>
+    <tbody *ngFor="let e of emp_list">
+      <tr>
+        <th>{{emp_list.indexOf(e)+1}}</th>
+        <td>{{e.cin}}</td>
+        <td>{{e.nom}}</td>
+        <td>{{e.prenom}}</td>
+        <td>{{e.dateNaiss | date:'dd/MM/yyyy'}}</td>
+        <td>{{e.adress}}</td>
+        <td>{{e.department.iddep}}</td>
+        <td>{{e.department.salary}}</td>
+      </tr>
+    </tbody>
+        </table>
+        </div>
+        </div>
+        </div>
+
+        
+        
+
+
+
